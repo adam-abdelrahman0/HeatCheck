@@ -1,5 +1,10 @@
 # HeatCheck
 CS302 Final Project
 
-<h1>Duties:</h1>
+<h2>Duties:</h2>
+Adam:
+Alex:
+Andrew:
+Christian:
+
 
