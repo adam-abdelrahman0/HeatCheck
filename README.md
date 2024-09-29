@@ -8,7 +8,7 @@ Fashion = life && money;<br>
 
 
 <h2>Duties:</h2>
-Adam: Developing algorithm to separate each article of clothing from jpg passed from Andrew's code and pass to Christian as jpg image. Also develop web interface using Azure (if time allows) to host back and frontend. Frontend is a simple GUI that requestes webcam permissions and creates leaderboard for all users.<br><br>
+Adam: Developing algorithm to separate each article of clothing from jpg passed from Andrew's code and pass to Christian as jpg image. Also develop web interface using Azure (if time allows) to host back and frontend. Frontend is a simple GUI that requests webcam permissions and creates leaderboard for all users.<br><br>
 Alex: Scraping outfit data off Pinterest so we have data to judge our heat. Digging into the Pinterest API, figuring out how to make it all work.<br><br>
 Andrew: Interfacing with webcam to take images and stream a preview, learning Python hehe<br><br>
 Christian: work on image classifier to identify article of clothing and color of clothing and (if time allows) the style of the article of clothing
