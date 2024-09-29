@@ -1,0 +1,17 @@
+HeatCheck Milestones, Adam Abdelrahman:
+
+Overview: Developing algorithm to separate each article of clothing from jpg passed from Andrew's code and pass to Christian as jpg image. Also develop web interface using Azure (if time allows) to host back and frontend. Frontend is a simple GUI that requests webcam permissions and creates leaderboard for all users.
+
+Milestones:
+- Python algorithm:
+1. Develop workable OpenCV test program (includes setting up environment)
+2. Compile bank of sample images and approximate correct outputs
+3. Identify articles of clothing using either existing model or train new model
+4. Separate images into regions with only that article of clothing
+
+- Web stuff:
+1. Research hosting (if too time consuming, simply local host and forego leaderboard)
+2. Create Angular project (best for dynamic binding if we do a leaderboard)
+3. Design GUI (may delegate to Alex or Andrew, who each have design experience)
+4. Create frontend components 
+5. Create Flask backend to run each (Andrew’s, Christian’s, my) scripts 
