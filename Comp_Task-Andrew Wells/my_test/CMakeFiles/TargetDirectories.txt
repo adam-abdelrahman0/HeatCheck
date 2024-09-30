@@ -1,0 +1,3 @@
+/home/awells/opencv/my_test/CMakeFiles/DisplayImage.dir
+/home/awells/opencv/my_test/CMakeFiles/edit_cache.dir
+/home/awells/opencv/my_test/CMakeFiles/rebuild_cache.dir
