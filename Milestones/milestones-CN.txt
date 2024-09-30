@@ -1,0 +1,20 @@
+HeatCheck Milestones, Christian Niehaus:
+
+Overview: develop (or find) an image classifier to identify clothing features. 
+          How detailed the identification gets will be decided by how hard this ends up being
+
+Rubric:
+    15 pts - dedicate required time to project
+    10 pts - properly detect metrics about a person's outfit
+    10 pts - algorithm to determine 'heat' in fahrenheit
+     5 pts - a heat leaderboard
+
+Milestones:
+- Image Classifier (ML)
+1. (Very) Basic classifier to identify pants vs shirts
+2. Identify color of clothing articles
+3. Speak with Adam on what other metrics would assist in the creation of our heat check algorithm
+4. implement as many other metrics as possible before the deadline
+
+- Web Development
+1. Help Adam as needed with the web dev side of this project
