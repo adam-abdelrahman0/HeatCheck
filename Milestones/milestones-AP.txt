@@ -1,0 +1,16 @@
+HeatCheck Milestones, Alex Pacheco:
+
+Overview: Acquiring data from Pinterest, collecting the data to be gathered, and helping format images for others to use
+
+Rubric:
+	15 pts - dedicate required time to project
+    	10 pts - divide up the images in formats for everyone’s part
+    	5 pts - collection of images for us to use as data
+    	 5 pts - beautiful soup and pillow 
+
+
+Milestones:
+1. make a pinterest board with plenty of data (images and 'heat')
+2. scrape the data from pinterest
+3. put images into a useable format for everyone else
+4. help wherever needed :D
