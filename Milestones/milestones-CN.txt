@@ -11,10 +11,11 @@ Rubric:
 
 Milestones:
 - Image Classifier (ML)
-1. (Very) Basic classifier to identify pants vs shirts
-2. Identify color of clothing articles
-3. Speak with Adam on what other metrics would assist in the creation of our heat check algorithm
-4. implement as many other metrics as possible before the deadline
+1. Do some learning about convolutional networks in pytorch
+2. (Very) Basic classifier to identify pants vs shirts
+3. Identify color of clothing articles
+4. Speak with Adam on what other metrics would assist in the creation of our heat check algorithm
+5. implement as many other metrics as possible before the deadline
 
 - Web Development
 1. Help Adam as needed with the web dev side of this project

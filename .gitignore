@@ -1,0 +1,8 @@
+# python virtual environment files
+bin
+lib
+lib64
+share
+include
+pyvenv.cfg
+Comp_Task-Christian/data
