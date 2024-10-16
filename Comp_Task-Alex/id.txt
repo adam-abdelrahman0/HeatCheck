@@ -1,0 +1,22 @@
+not used for compiling, just notes for me to yoink the urls
+/////////////////////
+
+Meta IDs:
+
+
+Hashtags:
+‘fashion’: 17841592771073334
+'gothicfashion': 17843146432007976
+'mensfashion': 17843829844009940
+'casualfashion': 17843727913052565
+'drip': 17842284655067909 // this one had queen elizabeth in a tracksuit??
+'streetstyle': 17843698438042472
+'outfit': 17843892265020344
+'stylish': 17843723689007987
+'fashionblogger': 17843830906017148
+'ootd': 17841563308101050
+'businesscasual': 17841599389072250
+'athleisure': 17842555510061799
+'vintagestyle': 17843802649050725
+'instafashion': 17841591718073119
+'fashionista': 17843742502017651
