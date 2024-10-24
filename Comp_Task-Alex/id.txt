@@ -1,8 +1,6 @@
 not used for compiling, just notes for me to yoink the urls
 /////////////////////
 
-Meta IDs:
-
 
 Hashtags:
 ‘fashion’: 17841592771073334
