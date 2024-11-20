@@ -6,3 +6,39 @@ share
 include
 pyvenv.cfg
 Comp_Task-Christian/data
+node_modules/
+
+# Virtual environment
+venv/
+env/
+*.env
+
+# Bytecode files
+__pycache__/
+*.pyc
+*.pyo
+
+# IDE/editor files (example: VSCode, PyCharm)
+.vscode/
+.idea/
+
+# Flask config files (if you store your Flask config in a file)
+instance/
+*.log
+
+# Jupyter Notebook checkpoints (if you are using Jupyter)
+.ipynb_checkpoints/
+
+# Python eggs (created during packaging)
+*.egg
+*.egg-info/
+
+# Distribution / packaging
+dist/
+build/
+*.tar.gz
+*.whl
+
+# Environment variables (ensure .env files are not committed)
+.env
+.env.*
