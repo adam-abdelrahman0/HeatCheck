@@ -1,5 +1,8 @@
+import base64
 from flask import Flask, jsonify, request
 from flask_cors import CORS
+import cv2
+import numpy as np
 
 app = Flask(__name__)
 
@@ -29,6 +32,23 @@ def submit_score():
     # For now, we'll just simulate a successful submission
     response = {"message": "Score submitted successfully!", "data": data}
     return jsonify(response)
+
+@app.route('/process-image', methods=['POST'])
+def process_image():
+    """Endpoint to process an image from the webcam."""
+    data = request.get_json()
+    image_data = data.get('image')  # Expecting a base64-encoded image string
+
+    if not image_data:
+        return jsonify({"error": "No image provided."}), 400
+
+    # Decode the base64 image
+    try:
+        image_bytes = base64.b64decode(image_data)
+        nparr = np.frombuffer(image_bytes, np.uint8)
+        image = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
+    except Exception as e:
+        return jsonify({"error": f"Error decoding image: {e}"}), 400
 
 if __name__ == '__main__':
     app.run(debug=True)
