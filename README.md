@@ -13,4 +13,8 @@ Alex: Scraping outfit data off Pinterest so we have data to judge our heat. Digg
 Andrew: Interfacing with webcam to take images and stream a preview, learning Python hehe<br><br>
 Christian: Work on image classifier to identify article of clothing and color of clothing and (if time allows) the style of the article of clothing
 
+<br><h2>Run Instructions:</h2>
+To run locally (as we are currently for testing), create a virtual environment for python3 (https://python.land/virtual-environments/virtualenv) and install python dependencies. Ensure the npm is installed and up to date.
+
+To run the backend, navigate to HeatCheck/backend and run python main.py. In another terminal, navigate to HeatCheck/angular-frontend and run ng serve. Open the localhost address that appears.
 
