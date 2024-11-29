@@ -10,19 +10,20 @@
         </div>
         <div class="home-component__upload-container">
             <div 
-                class="drag-drop-area"
+                class="home-component__drag-drop-area"
                 (dragover)="onDragOver($event)"
                 (dragleave)="onDragLeave($event)"
                 (drop)="onDrop($event)">
                 <p *ngIf="!uploadedImage">Drag & Drop your image here, or click to upload</p>
-                <img *ngIf="uploadedImage" [src]="uploadedImage" alt="Uploaded image preview" class="preview-img" />
+                <img *ngIf="uploadedImage" [src]="uploadedImage" alt="Uploaded image preview" class="home-component__preview-img" />
                 <input
                     type="file"
                     accept="image/jpeg"
                     (change)="onFileSelected($event)"
                     hidden
                     #fileInput />
-                <button (click)="fileInput.click()">Browse Files</button>
+                <button class="home-component__button-primary" (click)="fileInput.click()">Browse Files</button>
+                <button *ngIf="uploadedImage" class="home-component__button-primary" (click)="sendImageToBackend(this.uploadedImage)">Upload</button>
             </div>
         </div>
     </div>

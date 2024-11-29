@@ -53,7 +53,7 @@ export class HomeComponent {
         const reader = new FileReader();
         reader.onload = () => {
             this.uploadedImage = reader.result as string;
-            this.sendImageToBackend(this.uploadedImage);
+            //this.sendImageToBackend(this.uploadedImage);
         };
         reader.readAsDataURL(file);
     }
