@@ -18,7 +18,8 @@
 
     &__text {
         padding-left: 3%;
-        padding-top: 1%;
+        padding-top: 2%;
+        font-size: 2em;
     }
 
     &__leaderboard {
@@ -39,11 +40,73 @@
 
     &__photo-upload {
         padding-top: 2%;
+        padding-left: 0;
         text-align: center;
         color: #f7dbd8;
         border: 5px dotted #d28d7e88;
         border-radius: 10px;
         height: 60%;
-        //box-shadow: 0 0 10px #f7dbd8;
+    }
+
+    &__upload-container {
+        padding-left: 0;
+        text-align: center;
+        color: #f7dbd8;
+        border: 5px dotted #d28d7e88;
+        border-radius: 10px;
+        height: 60%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__button-primary {
+        margin-top: 2%;
+        transition-duration: 0.4s;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        border: none;
+        border-radius: 5px;
+        padding: 1% 2%;
+        color: #21002b;
+        background-color: #f7dbd8;
+    }
+
+    &__button-primary:hover {
+        background-color: #d28e7e;
+    }
+
+    &__drag-drop-area {
+        border: none;
+        border-radius: 10px;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        cursor: pointer;
+        transition: background-color 0.2s;
+    }
+    
+    &__drag-drop-area:hover {
+        background-color: #21002b;
+    }
+    
+    &__drag-drop-area.active {
+        background-color: #e8f5e9;
+    }
+
+    &__preview-img {
+        max-width: 100%;
+        max-height: 200px;
+        margin-top: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
     }
 }
+
+
+
+
+
