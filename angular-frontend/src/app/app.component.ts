@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { LeaderboardService } from './services/leaderboard.service';
 
 @Component({
   selector: 'app-root',
@@ -12,13 +13,16 @@ export class AppComponent {
   title = 'angular-frontend';
   leaderboard: any[] = [];
 
-  constructor(private http: HttpClient) {}
+  constructor(private leaderboardService: LeaderboardService) {}
 
   ngOnInit() {
-    this.getLeaderboard();
+    this.leaderboardService.fetchLeaderboard().subscribe({
+      next: (data) => this.leaderboardService.setLeaderboard(data),
+      error: (err) => console.error('Failed to fetch leaderboard:', err),
+    });
   }
 
-  getLeaderboard() {
+  /*getLeaderboard() {
     this.http.get('http://127.0.0.1:5000/leaderboard').subscribe((data: any) => {
       this.leaderboard = data;
       console.log('Leaderboard:', this.leaderboard);
@@ -29,5 +33,5 @@ export class AppComponent {
     this.http.post('http://127.0.0.1:5000/submit-score', outfitData).subscribe(response => {
       console.log('Score submitted:', response);
     });
-  }
+  }*/
 }

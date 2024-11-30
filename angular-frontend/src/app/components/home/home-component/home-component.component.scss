@@ -28,7 +28,36 @@
         border-radius: 10px;
         box-shadow: 0 0 10px 2px #d28e7e;
         height: 700px;
+        max-height: 700px; /* Set the height of the scrollable container */
+        overflow-y: auto;
     }
+
+    &__leaderboard-table {
+        border-collapse: collapse;
+        border: none;
+        border-radius: 10px;
+        background-color: #d28e7e;
+        font-size: 1.6em;
+        margin-left: 5%;
+        margin-bottom: 3%;
+        width: 90%;
+    }
+
+    &__leaderboard-table tbody tr:nth-child(even) {
+        background-color: #d2b1aa;
+        color: #fff;
+    }
+
+    &__leaderboard-table td {
+        padding-left: 1%;
+        border: none;
+    }
+    //https://stackoverflow.com/questions/4094126/how-to-add-border-radius-on-table-row
+    &__leaderboard-table tr:first-child td:first-child { border-top-left-radius: 10px; }
+    &__leaderboard-table tr:first-child td:last-child { border-top-right-radius: 10px; }
+
+    &__leaderboard-table tr:last-child td:first-child { border-bottom-left-radius: 10px; }
+    &__leaderboard-table tr:last-child td:last-child { border-bottom-right-radius: 10px; }
 
     &__blurb {
         height: 30%;

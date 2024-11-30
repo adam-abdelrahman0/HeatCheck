@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
+import { LeaderboardService } from '../../../services/leaderboard.service';
+import { LeaderboardEntry } from '../../../types/leaderboard-entry';
 
 @Component({
   selector: 'app-home-component',
@@ -10,8 +12,14 @@ import { HttpClient } from '@angular/common/http';
 })
 export class HomeComponent {
   uploadedImage: string | null = null;
+  leaderboard: LeaderboardEntry[] = [];
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private leaderboardService: LeaderboardService) {}
+
+  ngOnInit() {
+    this.leaderboard = this.leaderboardService.getLeaderboard();
+    console.log(this.leaderboard)
+  }
 
   // Handle drag over event
   onDragOver(event: DragEvent): void {
@@ -69,15 +77,15 @@ export class HomeComponent {
     }
 
     this.http.post('http://127.0.0.1:5000/process-image', { image: this.uploadedImage })
-        .subscribe({
-            next: (response) => {
-                console.log('Image sent successfully:', response);
-                alert('Image processed successfully!');
-            },
-            error: (error) => {
-                console.error('Error sending image:', error);
-                alert('Failed to process image.');
-            },
-        });
+      .subscribe({
+          next: (response) => {
+              console.log('Image sent successfully:', response);
+              alert('Image processed successfully!');
+          },
+          error: (error) => {
+              console.error('Error sending image:', error);
+              alert('Failed to process image.');
+          },
+      });
     }
 }

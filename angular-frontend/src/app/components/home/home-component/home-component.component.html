@@ -4,6 +4,15 @@
 <div class="home-component__content">
     <div class="home-component__col home-component__leaderboard">
         <h1 class="home-component__text">Leaderboard</h1>
+        <table class="home-component__leaderboard-table">
+            <tbody>
+                <tr *ngFor="let entry of leaderboard; let i = index">
+                  <td>{{ i + 1 }}</td>
+                  <td>{{ entry.username }}</td>
+                  <td>{{ entry.score }}</td>
+                </tr>
+              </tbody>
+        </table>
     </div>
     <div class="home-component__col">
         <div class="home-component__blurb">
