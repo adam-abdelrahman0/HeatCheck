@@ -7,7 +7,7 @@ import { LeaderboardEntry } from '../types/leaderboard-entry';
     providedIn: 'root',
 })
 export class LeaderboardService {
-    private leaderboardUrl = 'http://localhost:5000/api/leaderboard';
+    private leaderboardUrl = 'http://127.0.0.1:5000/leaderboard';
     private leaderboard: LeaderboardEntry[] = [];
 
     constructor(private http: HttpClient) {}
