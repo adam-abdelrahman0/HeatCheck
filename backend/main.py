@@ -7,7 +7,7 @@ import numpy as np
 app = Flask(__name__)
 
 # Enable CORS for all routes (allowing Angular frontend to interact with Flask backend)
-CORS(app)
+CORS(app, resources={r"/*": {"origins": "http://localhost:4200"}})
 
 # Example leaderboard data (can be replaced with actual database or dynamic data)
 leaderboard_data = [
@@ -35,20 +35,35 @@ def submit_score():
 
 @app.route('/process-image', methods=['POST'])
 def process_image():
-    """Endpoint to process an image from the webcam."""
-    data = request.get_json()
-    image_data = data.get('image')  # Expecting a base64-encoded image string
-
-    if not image_data:
-        return jsonify({"error": "No image provided."}), 400
-
-    # Decode the base64 image
     try:
-        image_bytes = base64.b64decode(image_data)
-        nparr = np.frombuffer(image_bytes, np.uint8)
-        image = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
+        # Get the image data from the POST 
+        data = request.get_json()
+        image_data = data.get('image', None)
+
+        if not image_data:
+            # If no image data is provided, return a 400 error
+            return jsonify({'error': 'No image data provided'}), 400
+
+        # Process da image
+        print("Received image data:", image_data)
+
+        #result = process_with_detectron2(image_data)
+        #ranking_score = get_ranking(image_data)
+
+        result = "success"
+        ranking_score = 5
+
+        # Return the processed result and ranking score as JSON
+        return jsonify({
+            "message": "Image processed successfully!",
+            "result": result,  # Add any actual result from Detectron2 or ranking model
+            "ranking_score": ranking_score
+        })
+
     except Exception as e:
-        return jsonify({"error": f"Error decoding image: {e}"}), 400
+        # Return a 500 error in case of any exception
+        return jsonify({"error": str(e)}), 500
+
 
 if __name__ == '__main__':
     app.run(debug=True)
