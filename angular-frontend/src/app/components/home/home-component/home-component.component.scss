@@ -7,6 +7,7 @@
         grid-column-gap: 2%;
     }
 
+    
     &__col {
         width: 100%;
     }
@@ -14,6 +15,8 @@
     &__blurb-col {
         display: grid;
         grid-template-rows: 1fr auto;
+
+        
     }
 
     &__text {
@@ -23,7 +26,7 @@
     }
 
     &__leaderboard {
-        color: #f7dbd8;
+        color: #F7DBD8; // the word "Leaderboard"
         border: none;
         border-radius: 10px;
         box-shadow: 0 0 10px 2px #d28e7e;
@@ -36,7 +39,8 @@
         border-collapse: collapse;
         border: none;
         border-radius: 10px;
-        background-color: #d28e7e;
+        background-color: #4c589c; //odd numbers on leaderboard
+        color: #cf95ba; // odd text
         font-size: 1.6em;
         margin-left: 5%;
         margin-bottom: 3%;
@@ -44,8 +48,8 @@
     }
 
     &__leaderboard-table tbody tr:nth-child(even) {
-        background-color: #d2b1aa;
-        color: #fff;
+        background-color: #3f4a88; // even numbers on leaderboard
+        color: #be7fa7; // even text
     }
 
     &__leaderboard-table td {
