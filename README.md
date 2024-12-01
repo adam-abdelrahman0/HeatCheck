@@ -15,6 +15,12 @@ Christian: Work on image classifier to identify article of clothing and color of
 
 <br><h2>Run Instructions:</h2>
 To run locally (as we are currently for testing), create a virtual environment for python3 (https://python.land/virtual-environments/virtualenv) and install python dependencies. Ensure the npm is installed and up to date.
+<br>
+<h3>Frontend Setup</h3>
+Install Node and npm. Then, use command line to run "npm install -g @angular/cli@latest" followed by "npm install". 
+<br>
+<h3>Backend Setup</h3>
+To activate virtual environment (assuming you created it already), run "source my_project_env/bin/activate" (or "my_project_env\Scripts\activate" on Windows). pip install all dependencies.
 
 To run the backend, navigate to HeatCheck/backend and run python main.py. In another terminal, navigate to HeatCheck/angular-frontend and run ng serve. Open the localhost address that appears.
 
