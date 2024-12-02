@@ -30,5 +30,4 @@ def getHeat(image):
 
     # use how close they got to any particular style to determine their heat score
     maximum = np.max(output)
-    print(maximum)
     return str(212*maximum)

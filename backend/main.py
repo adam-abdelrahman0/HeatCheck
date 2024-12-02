@@ -78,11 +78,11 @@ def process_image():
         # Process da image
         print("Received image data:", image_data)
 
-        #result = process_with_detectron2(image_data)
-        #ranking_score = get_ranking(image_data)
+        ranking_score = getHeat(image_data)
+        if(ranking_score == "no human"):
+            raise Exception("no human in image")
 
         result = "success"
-        ranking_score = 5
 
         # Return the processed result and ranking score as JSON
         return jsonify({
