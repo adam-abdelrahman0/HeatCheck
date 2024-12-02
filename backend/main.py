@@ -1,5 +1,6 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS
+from models import getHeat
 
 app = Flask(__name__)
 
@@ -22,12 +23,15 @@ def get_leaderboard():
 def submit_score():
     """Endpoint to submit a new outfit score"""
     data = request.get_json()  # Get JSON data sent from frontend
+    print(data)
 
-    # Example: Process the incoming data (validate, save to database, etc.)
-    print("Received outfit data:", data)
+    # run the recieved data through the image cutting and heatcheck model
+    # print("Received outfit data:", data)
+    heat = getHeat(data["image"])
+
     
     # For now, we'll just simulate a successful submission
-    response = {"message": "Score submitted successfully!", "data": data}
+    response = {"message": "Score submitted successfully! heat is " + str(heat), "data": heat}
     return jsonify(response)
 
 if __name__ == '__main__':
