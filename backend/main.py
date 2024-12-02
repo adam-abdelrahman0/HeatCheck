@@ -3,6 +3,7 @@ from flask import Flask, jsonify, request
 from flask_cors import CORS
 import cv2
 import numpy as np
+from models import getHeat
 
 app = Flask(__name__)
 
