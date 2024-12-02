@@ -1,0 +1,7 @@
+<h1>works</h1>
+<div>
+    <video #webcam autoplay></video>
+    <canvas #snapshotCanvas style="display: none;"></canvas>
+    <button (click)="captureImage()">Capture Image</button>
+    <img *ngIf="capturedImage" [src]="capturedImage" alt="Captured image">
+</div>

@@ -1,0 +1,42 @@
+<div class="home-component__heading">
+    <img src="assets/logo.svg" style="width: 30%; padding-left: 3%; padding-top: 1.5%"/>
+</div>
+<div class="home-component__content">
+    <div class="home-component__col home-component__leaderboard">
+        <h1 class="home-component__text">Leaderboard</h1>
+        <table class="home-component__leaderboard-table">
+            <tbody>
+                <tr *ngFor="let entry of leaderboard; let i = index">
+                  <td>{{ i + 1 }}</td>
+                  <td>{{ entry.username }}</td>
+                  <td>{{ entry.score }}</td>
+                </tr>
+              </tbody>
+        </table>
+    </div>
+    <div class="home-component__col">
+        <div class="home-component__blurb">
+            <h1 class="home-component__text">Have you any Heat?</h1>
+            <p class="home-component__text">Heatcheck is one of the outfit ranking systems ever made.</p>
+        </div>
+        <div class="home-component__upload-container">
+            <div 
+                class="home-component__drag-drop-area"
+                (dragover)="onDragOver($event)"
+                (dragleave)="onDragLeave($event)"
+                (drop)="onDrop($event)">
+                <p *ngIf="!uploadedImage">Drag & Drop your image here, or click to upload</p>
+                <img *ngIf="uploadedImage" [src]="uploadedImage" alt="Uploaded image preview" class="home-component__preview-img" />
+                <input
+                    type="file"
+                    accept="image/jpeg"
+                    (change)="onFileSelected($event)"
+                    hidden
+                    #fileInput />
+                <button class="home-component__button-primary" (click)="fileInput.click()">Browse Files</button>
+                <button *ngIf="uploadedImage" class="home-component__button-primary" (click)="sendImageToBackend(this.uploadedImage)">Upload</button>
+            </div>
+        </div>
+    </div>
+</div>
+
