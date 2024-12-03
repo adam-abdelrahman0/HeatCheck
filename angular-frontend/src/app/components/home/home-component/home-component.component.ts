@@ -18,7 +18,7 @@ export class HomeComponent {
   outfitScore: number | null = null;
   isModalVisible = false;
   isLoading = false;
-  username: string = "newsample";
+  username: string = "";
   constructor(private http: HttpClient, private leaderboardService: LeaderboardService) {}
 
   ngOnInit() {
@@ -114,5 +114,6 @@ export class HomeComponent {
     updateLeaderboard(username: string, score: number) {
         this.leaderboard.push({ username, score });
         this.leaderboard.sort((a, b) => b.score - a.score); // Keep leaderboard sorted by score
+        this.username = "";
       }
 }
