@@ -34,9 +34,23 @@
                     hidden
                     #fileInput />
                 <button class="home-component__button-primary" (click)="fileInput.click()">Browse Files</button>
-                <button *ngIf="uploadedImage" class="home-component__button-primary" (click)="sendImageToBackend(this.uploadedImage)">Upload</button>
+                <button *ngIf="uploadedImage" class="home-component__button-primary" [disabled]="isLoading" (click)="sendImageToBackend(this.uploadedImage)">
+                    <span *ngIf="!isLoading">Upload Image</span>
+                    <span *ngIf="isLoading">
+                        <div class="home-component__spinner"></div> Processing...
+                    </span>
+                </button>
             </div>
         </div>
     </div>
 </div>
+<div class="home-component__modal" *ngIf="isModalVisible">
+    <div class="home-component__modal-content">
+      <span class="home-component__close-button" (click)="closeModal()">&times;</span>
+      <h2>Outfit Score</h2>
+      <p *ngIf="outfitScore !== null">Your outfit score is: {{ outfitScore }} ° F</p>
+      <p *ngIf="outfitScore === null">Processing...</p>
+    </div>
+  </div>
+  
 
