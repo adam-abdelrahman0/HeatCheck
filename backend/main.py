@@ -12,36 +12,7 @@ CORS(app, resources={r"/*": {"origins": "http://localhost:4200"}})
 
 # Example leaderboard data (can be replaced with actual database or dynamic data)
 leaderboard_data = [
-    {"username": "user1", "score": 100},
-    {"username": "user2", "score": 95},
-    {"username": "user3", "score": 90},
-    {"username": "user4", "score": 900},
-    {"username": "user5", "score": 1010},
-    {"username": "user6", "score": -5},
-    {"username": "user1", "score": 100},
-    {"username": "user2", "score": 95},
-    {"username": "user3", "score": 90},
-    {"username": "user4", "score": 900},
-    {"username": "user5", "score": 1010},
-    {"username": "user6", "score": -5},
-    {"username": "user1", "score": 100},
-    {"username": "user2", "score": 95},
-    {"username": "user3", "score": 90},
-    {"username": "user4", "score": 900},
-    {"username": "user5", "score": 1010},
-    {"username": "user6", "score": -5},
-    {"username": "user1", "score": 100},
-    {"username": "user2", "score": 95},
-    {"username": "user3", "score": 90},
-    {"username": "user4", "score": 900},
-    {"username": "user5", "score": 1010},
-    {"username": "user6", "score": -5},
-    {"username": "user1", "score": 100},
-    {"username": "user2", "score": 95},
-    {"username": "user3", "score": 90},
-    {"username": "user4", "score": 900},
-    {"username": "user5", "score": 1010},
-    {"username": "user6", "score": -5}
+    {"username": "Christian", "score": 10000},
 ]
 
 @app.route('/leaderboard', methods=['GET'])
@@ -70,6 +41,7 @@ def process_image():
         # Get the image data from the POST 
         data = request.get_json()
         image_data = data.get('image', None)
+        username = data.get('username')
 
         if not image_data:
             # If no image data is provided, return a 400 error
@@ -83,6 +55,8 @@ def process_image():
             raise Exception("no human in image")
 
         result = "success"
+
+        leaderboard_data.append({'username': username, 'score': ranking_score})
 
         # Return the processed result and ranking score as JSON
         return jsonify({
