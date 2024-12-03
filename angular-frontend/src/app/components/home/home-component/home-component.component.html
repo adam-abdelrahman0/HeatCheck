@@ -9,7 +9,7 @@
                 <tr *ngFor="let entry of leaderboard; let i = index">
                   <td>{{ i + 1 }}</td>
                   <td>{{ entry.username }}</td>
-                  <td>{{ entry.score }}</td>
+                  <td>{{ entry.score }}° F</td>
                 </tr>
               </tbody>
         </table>
@@ -17,8 +17,13 @@
     <div class="home-component__col">
         <div class="home-component__blurb">
             <h1 class="home-component__text">Have you any Heat?</h1>
-            <p class="home-component__text">Heatcheck is one of the outfit ranking systems ever made.</p>
-            <p class="home-component__text">Username: <input id="username" type="text"></p>
+            <p style="padding: 0 3% 0">Heatcheck is one of the outfit ranking systems ever made. 
+                Enter your username below and upload a photo to get started:</p>
+            <input 
+                type="text" 
+                [(ngModel)]="username" 
+                placeholder="Enter your username" 
+                class="home-component__username-input" />
         </div>
         <div class="home-component__upload-container">
             <div 

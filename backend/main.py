@@ -12,12 +12,7 @@ CORS(app, resources={r"/*": {"origins": "http://localhost:4200"}})
 
 # Example leaderboard data (can be replaced with actual database or dynamic data)
 leaderboard_data = [
-    # {"username": "user1", "score": 100},
-    # {"username": "user2", "score": 95},
-    # {"username": "user3", "score": 90},
-    # {"username": "user4", "score": 900},
-    # {"username": "user5", "score": 1010},
-    # {"username": "user6", "score": -5}
+    {"username": "Christian", "score": 10000},
 ]
 
 @app.route('/leaderboard', methods=['GET'])
