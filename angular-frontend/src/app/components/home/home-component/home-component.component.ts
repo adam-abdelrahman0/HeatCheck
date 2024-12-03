@@ -95,7 +95,8 @@ export class HomeComponent {
             console.log('Image sent successfully:', response);
             this.leaderboardService.fetchLeaderboard().subscribe({
               next: (response) => {
-                this.leaderboard = response;
+                // this.leaderboard = response;
+                this.leaderboardService.setLeaderboard(response);
               }
             });
             this.isLoading = false;
