@@ -67,10 +67,10 @@
 
     &__blurb {
         height: 40%;
-        color: #f7dbd8;
+        color: #F7DBD8;
         border: none;
         border-radius: 10px;
-        box-shadow: 0 0 10px #f7dbd8;
+        box-shadow: 0 0 10px 2px #d28e7e;
         margin-bottom: 5%;
     }
 
@@ -172,7 +172,8 @@
       
     &__modal-content {
         position: relative; /* Add this to make close button positioning relative */
-        background: white;
+        background: #e8c8dc;
+        color: #21002b;
         padding: 20px;
         border-radius: 10px;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
