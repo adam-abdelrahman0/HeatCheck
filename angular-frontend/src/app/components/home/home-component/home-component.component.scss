@@ -25,6 +25,10 @@
         font-size: 2em;
     }
 
+    &__small-text {
+        font-size: 1em;
+    }
+
     &__leaderboard {
         color: #F7DBD8; // the word "Leaderboard"
         border: none;
@@ -69,6 +73,7 @@
         border: none;
         border-radius: 10px;
         box-shadow: 0 0 10px #f7dbd8;
+        margin-bottom: 5%;
     }
 
     &__photo-upload {
@@ -196,3 +201,18 @@ button[disabled]{
   background-color: #cccccc;
   color: #666666;
 }
+
+.home-component__username-input {
+    width: 90%;
+    padding: 10px;
+    //padding-left: 10%;
+    margin-left: 3%;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .home-component__username-input:focus {
+    border-color: #f7dbd8;
+    outline: none;
+  }
