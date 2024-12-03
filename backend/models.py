@@ -29,5 +29,7 @@ def getHeat(image):
     output = model(np.array([image]))
 
     # use how close they got to any particular style to determine their heat score
+    # NewValue = (((OldValue - OldMin) * (NewMax - NewMin)) / (OldMax - OldMin)) + NewMin
     maximum = np.max(output)
-    return str(212*maximum)
+    print(maximum)
+    return str((((maximum - 0) * (212 - (-100))) / (1-0)) + (-100))

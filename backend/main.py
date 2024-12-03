@@ -12,36 +12,12 @@ CORS(app, resources={r"/*": {"origins": "http://localhost:4200"}})
 
 # Example leaderboard data (can be replaced with actual database or dynamic data)
 leaderboard_data = [
-    {"username": "user1", "score": 100},
-    {"username": "user2", "score": 95},
-    {"username": "user3", "score": 90},
-    {"username": "user4", "score": 900},
-    {"username": "user5", "score": 1010},
-    {"username": "user6", "score": -5},
-    {"username": "user1", "score": 100},
-    {"username": "user2", "score": 95},
-    {"username": "user3", "score": 90},
-    {"username": "user4", "score": 900},
-    {"username": "user5", "score": 1010},
-    {"username": "user6", "score": -5},
-    {"username": "user1", "score": 100},
-    {"username": "user2", "score": 95},
-    {"username": "user3", "score": 90},
-    {"username": "user4", "score": 900},
-    {"username": "user5", "score": 1010},
-    {"username": "user6", "score": -5},
-    {"username": "user1", "score": 100},
-    {"username": "user2", "score": 95},
-    {"username": "user3", "score": 90},
-    {"username": "user4", "score": 900},
-    {"username": "user5", "score": 1010},
-    {"username": "user6", "score": -5},
-    {"username": "user1", "score": 100},
-    {"username": "user2", "score": 95},
-    {"username": "user3", "score": 90},
-    {"username": "user4", "score": 900},
-    {"username": "user5", "score": 1010},
-    {"username": "user6", "score": -5}
+    # {"username": "user1", "score": 100},
+    # {"username": "user2", "score": 95},
+    # {"username": "user3", "score": 90},
+    # {"username": "user4", "score": 900},
+    # {"username": "user5", "score": 1010},
+    # {"username": "user6", "score": -5}
 ]
 
 @app.route('/leaderboard', methods=['GET'])
@@ -53,7 +29,7 @@ def get_leaderboard():
 def submit_score():
     """Endpoint to submit a new outfit score"""
     data = request.get_json()  # Get JSON data sent from frontend
-    print(data)
+    # print(data)
 
     # run the recieved data through the image cutting and heatcheck model
     # print("Received outfit data:", data)
@@ -70,13 +46,14 @@ def process_image():
         # Get the image data from the POST 
         data = request.get_json()
         image_data = data.get('image', None)
+        username = data.get('username', None)
 
         if not image_data:
             # If no image data is provided, return a 400 error
             return jsonify({'error': 'No image data provided'}), 400
 
         # Process da image
-        print("Received image data:", image_data)
+        # print("Received image data:", image_data)
 
         ranking_score = getHeat(image_data)
         if(ranking_score == "no human"):
@@ -84,10 +61,19 @@ def process_image():
 
         result = "success"
 
+
+        if(username != None):
+            if(any(x["username"] == username for x in leaderboard_data)):
+                leaderboard_data[[entry["username"] for entry in leaderboard_data].index(username)]["score"] = ranking_score
+            else:
+                leaderboard_data.append({"username": username, "score": ranking_score})
+        else:
+            print("no username, not adding to leaderboard")
+
         # Return the processed result and ranking score as JSON
         return jsonify({
             "message": "Image processed successfully!",
-            "result": result,  # Add any actual result from Detectron2 or ranking model
+            "result": result,
             "ranking_score": ranking_score
         })
 

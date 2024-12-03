@@ -86,12 +86,19 @@ export class HomeComponent {
       return;
     }
 
-    this.http.post<{ message: string; ranking_score: number; result: any }>('http://127.0.0.1:5000/process-image', { image: this.uploadedImage })
+    let username = (<HTMLInputElement>document.getElementById("username")).value;
+
+    this.http.post<{ message: string; ranking_score: number; result: any }>('http://127.0.0.1:5000/process-image', { image: this.uploadedImage, username: username })
       .subscribe({
           next: (response) => {
             this.outfitScore = response.ranking_score;
             console.log(this.outfitScore);
             console.log('Image sent successfully:', response);
+            this.leaderboardService.fetchLeaderboard().subscribe({
+              next: (response) => {
+                this.leaderboard = response;
+              }
+            });
             this.isLoading = false;
           },
           error: (error) => {
