@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { LeaderboardService } from '../../../services/leaderboard.service';
 import { LeaderboardEntry } from '../../../types/leaderboard-entry';
+import { Score } from '../../../types/score';
 
 @Component({
   selector: 'app-home-component',
@@ -13,6 +14,9 @@ import { LeaderboardEntry } from '../../../types/leaderboard-entry';
 export class HomeComponent {
   uploadedImage: string | null = null;
   leaderboard: LeaderboardEntry[] = [];
+  outfitScore: number | null = null;
+  isModalVisible = false;
+  isLoading = false;
 
   constructor(private http: HttpClient, private leaderboardService: LeaderboardService) {}
 
@@ -71,21 +75,35 @@ export class HomeComponent {
 
   // Send Base64 image to the backend
   sendImageToBackend(base64Image: string): void {
+    this.isLoading = true;
+    this.isModalVisible = true;
+    console.log(this.isModalVisible + "is ModalVisible");
+
     if (!this.uploadedImage) {
       alert('No image to send!');
+      this.closeModal();
+      this.isLoading = false;
       return;
     }
 
-    this.http.post('http://127.0.0.1:5000/process-image', { image: this.uploadedImage })
+    this.http.post<{ message: string; ranking_score: number; result: any }>('http://127.0.0.1:5000/process-image', { image: this.uploadedImage })
       .subscribe({
           next: (response) => {
-              console.log('Image sent successfully:', response);
-              alert('Image processed successfully!');
+            this.outfitScore = response.ranking_score;
+            console.log(this.outfitScore);
+            console.log('Image sent successfully:', response);
+            this.isLoading = false;
           },
           error: (error) => {
-              console.error('Error sending image:', error);
-              alert('Failed to process image.');
+            console.error('Error sending image:', error);
+            this.isLoading = false;
+            alert('Failed to process image.');
           },
       });
+    }
+
+    closeModal() {
+        this.isModalVisible = false;
+        this.outfitScore = null;
     }
 }
