@@ -57,7 +57,7 @@ def process_image():
         result = "success"
 
 
-        if(username != None):
+        if(username != ''):
             if(any(x["username"] == username for x in leaderboard_data)):
                 leaderboard_data[[entry["username"] for entry in leaderboard_data].index(username)]["score"] = ranking_score
             else:
