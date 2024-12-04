@@ -25,3 +25,6 @@ To activate virtual environment (assuming you created it already), run "source m
 <br><br>
 To run the backend, navigate to HeatCheck/backend and run python main.py. In another terminal, navigate to HeatCheck/angular-frontend and run ng serve. Open the localhost address that appears.
 
+<h2>Known Issues</h2>
+Sometimes non-human entities will be mistaken for humans, and a score given
+
